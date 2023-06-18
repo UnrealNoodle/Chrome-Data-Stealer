@@ -38,7 +38,7 @@ with open(output_file, "w", encoding="utf-8") as file:
         file.write("--------------------\n")
 
 # Create a zip file and add the Chrome history text file to it
-zip_file_path = os.path.join(temp_dir, "Chrome.zip")
+zip_file_path = os.path.join(temp_dir, "Chrome_Data.zip")
 with zipfile.ZipFile(zip_file_path, "w") as zip_file:
     zip_file.write(output_file, "Chrome History.txt")
 
