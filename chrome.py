@@ -70,3 +70,5 @@ os.remove(bookmarks_file_path)
 os.remove(history_file_path)
 
 print(f"Zip file created: {zip_file_path}")
+
+print("Done.")
